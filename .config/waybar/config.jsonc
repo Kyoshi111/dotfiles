@@ -1,8 +1,8 @@
 // -*- mode: jsonc -*-
 {
 	"height": 40,
-	"width": 1880,
-	"margin-top": 10,
+	"width": 1910,
+	"margin": 5,
 
 	"modules-left": ["custom/menu", "hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock"],
@@ -54,7 +54,7 @@
 	},
 
 	"clock": {
-		"format": "<span color='#fab387'></span> {:%H:%M:%S}",
+		"format": "<span color='#fab387'></span> {:%H:%M}",
 		"tooltip-format": "<big><span color='#cdd6f4'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "<span color='#eba0ac'></span> <span color='#cdd6f4'>{:%Y-%m-%d}</span>",
 
@@ -90,5 +90,4 @@
 
 	"escape": true,
 	"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-	}
 }

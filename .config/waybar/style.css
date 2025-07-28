@@ -9,12 +9,23 @@
 
 
 window#waybar {
-	border-radius: 20;
 	background-color: @base;
+	border: 1px solid @overlay0;
+	border-radius: 20px;
 }
-
-
-
+/*
+window#waybar:before {
+	content: "";
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	height: 40px;
+	width: 1920px;
+	border-top-left-radius: 20px;
+  	border-top-right-radius: 20px;
+	background: #522d5b;
+}
+*/
 #custom-menu {
 	padding: 2 15;
 	margin: 5 5 5 10;

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+hyprctl hyprpaper unload all
+
+WALLPAPER_DIR="$HOME/pictures/wallpapers"
+BG="$WALLPAPER_DIR/bg.png"
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+
+#cp "$WALLPAPER" "$BG"
+rm "$BG"
+ln -s "$WALLPAPER" "$BG"
+
+hyprctl hyprpaper preload "$BG"
+hyprctl hyprpaper wallpaper ,"$BG"
