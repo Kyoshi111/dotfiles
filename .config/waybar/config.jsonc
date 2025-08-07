@@ -9,7 +9,7 @@
 	"modules-right": ["tray", "hyprland/language", "custom/microphone", "pulseaudio", "clock"],
 
 	"hyprland/workspaces": {
-		"format": "{icon}",
+		"format": "{name}{icon}",
 		"on-click": "activate",
 		"format-icons": {
 			//"1": "󰲡",
@@ -22,15 +22,11 @@
 			//"8": "󰲯",
 			//"9": "󰲱",
 			//"10": "󰿭",
-			"urgent": "",
-			"active": "",
-			"empty": "",
-			"default": ""
+			"urgent": "",
+			"active": "",
+			"default": ""
 			},
 		"tooltip": false,
-		"persistent-workspaces": {
-			"*": 10
-		},
 		"on-scroll-up": "hyprctl dispatch workspace e-1",
     	"on-scroll-down": "hyprctl dispatch workspace e+1",
 
