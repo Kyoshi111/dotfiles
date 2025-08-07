@@ -4,7 +4,7 @@ hyprctl hyprpaper unload all
 
 WALLPAPER_DIR="$HOME/pictures/wallpapers"
 BG="$WALLPAPER_DIR/bg.png"
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+WALLPAPER=$(find "$WALLPAPER_DIR" -regex '.*\.png$' -type f | shuf -n 1)
 
 #cp "$WALLPAPER" "$BG"
 rm "$BG"
