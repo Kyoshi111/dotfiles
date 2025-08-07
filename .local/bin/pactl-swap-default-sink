@@ -1,0 +1,8 @@
+#!/bin/bash
+
+HEADPHONES="alsa_output.pci-0000_0c_00.4.analog-stereo"
+SPEAKER="alsa_output.pci-0000_0a_00.1.hdmi-stereo"
+
+SINK=$(pactl get-default-sink)
+
+[[ $SINK == $HEADPHONES ]] && pactl set-default-sink $SPEAKER || pactl set-default-sink $HEADPHONES

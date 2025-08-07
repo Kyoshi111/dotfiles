@@ -178,6 +178,11 @@ button:hover {
 	color: @maroon;
 }
 
+#custom-microphone {
+	padding: 2 0 2 15;
+	color: @red;
+}
+
 tooltip {
 	background: @base;
 	margin: 20px;

@@ -4,31 +4,40 @@
 	"width": 1910,
 	"margin": 5,
 
-	"modules-left": ["custom/menu", "hyprland/workspaces", "hyprland/window"],
-	"modules-center": ["clock"],
-	"modules-right": ["tray", "hyprland/language", "pulseaudio", "custom/power"],
-
-	"custom/menu": {
-		"format": "{icon}",
-		"format-icons": "󰣇",
-		"on-click": "wofi",
-		"escape": true,
-		"tooltip": false
-	},
+	"modules-left": ["hyprland/workspaces"],
+	"modules-center": ["hyprland/window"],
+	"modules-right": ["tray", "hyprland/language", "custom/microphone", "pulseaudio", "clock"],
 
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"on-click": "activate",
 		"format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+			//"1": "󰲡",
+			//"2": "󰲣",
+			//"3": "󰲥",
+			//"4": "󰲧",
+			//"5": "󰲩",
+			//"6": "󰲫",
+			//"7": "󰲭",
+			//"8": "󰲯",
+			//"9": "󰲱",
+			//"10": "󰿭",
+			"urgent": "",
+			"active": "",
+			"empty": "",
+			"default": ""
 			},
 		"tooltip": false,
+		"persistent-workspaces": {
+			"*": 10
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+    	"on-scroll-down": "hyprctl dispatch workspace e+1",
+
 	},
 
 	"hyprland/window": {
-		"format": "{class}",
+		"format": "{initialTitle} | {title}",
 		"separate-outputs": false,
 	},
 
@@ -41,20 +50,26 @@
 		"format": "<span color='#fab387'>󰌏</span> {}",
 		"format-en": "EN",
 		"format-ru": "RU",
+		"on-click": "hyprctl switchxkblayout cooler-master-technology-inc.-gaming-mech-kb next",
 	},
     
 	"pulseaudio": {
 		"scroll-step": 5,
 		"format": "<span color='#fab387'>{icon}</span> {volume}%",
 		"format-icons": {
-		"default": ["", "", ""]
+			"default": ["", "", ""],
+			"alsa_output.pci-0000_0c_00.4.analog-stereo": "",
+			"alsa_output.pci-0000_0a_00.1.hdmi-stereo": "󰽟",
 		},
-		"on-click": "pavucontrol",
+		"on-click": "pactl-swap-default-sink",
+		"on-click-right": "flatpak run com.github.wwmm.easyeffects",
+		"on-click-middle":"systemctl restart --user pipewire.service",
 		"tooltip": false
 	},
 
 	"clock": {
-		"format": "<span color='#fab387'></span> {:%H:%M}",
+		"interval": 1,
+		"format": "<span color='#fab387'></span> {:%H:%M:%S}",
 		"tooltip-format": "<big><span color='#cdd6f4'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "<span color='#eba0ac'></span> <span color='#cdd6f4'>{:%Y-%m-%d}</span>",
 
@@ -78,16 +93,12 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
-		},
+	},
 
-	"custom/power": {
-		"format": "{icon}",
-		"format-icons": "",
-		"on-click": "~/.config/rofi/powermenu/type-4/powermenu.sh",
-		"escape": true,
-		"tooltip": false
+	"custom/microphone": {
+		"exec": "pactl list sources | grep 'State: RUNNING' > /dev/null && echo ",
+		"restart-interval": 1,
 	},
 
 	"escape": true,
-	"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
 }
