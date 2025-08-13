@@ -3,7 +3,7 @@
 * {
 	font-family: JetBrainsMono Nerd Font;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	min-height: 0;
 }
 
@@ -12,6 +12,7 @@ window#waybar {
 	background-color: @base;
 	border: 1px solid @overlay0;
 	border-radius: 20px;
+	opacity: 0.97;
 }
 /*
 window#waybar:before {
@@ -26,17 +27,6 @@ window#waybar:before {
 	background: #522d5b;
 }
 */
-#custom-menu {
-	padding: 2 15;
-	margin: 5 5 5 10;
-	color: @mauve;
-	background-color: @base2;
-	border: none;
-	border-radius: 20;
-}
-#custom-menu:hover {
-	color: @flamingo;
-}
 
 
 #workspaces {
@@ -181,6 +171,10 @@ button:hover {
 #custom-microphone {
 	padding: 2 0 2 15;
 	color: @red;
+}
+
+#custom-zapret {
+	padding: 2 0 2 15;
 }
 
 tooltip {

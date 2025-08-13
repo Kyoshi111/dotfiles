@@ -39,3 +39,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 yay -S stylepak-git
 stylepak install-system
 ```
+
+# wofi
+```shell
+sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
+```

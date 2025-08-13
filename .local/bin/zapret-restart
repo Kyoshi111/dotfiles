@@ -1,0 +1,2 @@
+#!/bin/bash
+systemctl restart zapret_discord_youtube.service

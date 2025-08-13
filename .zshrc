@@ -114,4 +114,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475A \
 --color=border:#313244,label:#CDD6F4"
 
-alias zapret-restart='sudo systemctl restart zapret_discord_youtube.service'
