@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Legacy Launcher
+Comment=Legacy Launcher is a Minecraft Launcher
+Icon=ch.tlaun.TL
+Exec=/usr/lib/jvm/java-21-temurin/bin/java -jar /home/kyoshi/.apps/LegacyLauncher.jar
+NoDisplay=false
+Categories=Game;
+StartupNotify=false
+Terminal=false
+Keywords=Minecraft;
+StartupWMClass=ru-turikhay-tlauncher-bootstrap-Bootstrap
+PrefersNonDefaultGPU=true

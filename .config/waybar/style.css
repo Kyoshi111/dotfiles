@@ -14,23 +14,9 @@ window#waybar {
 	border-radius: 20px;
 	opacity: 0.97;
 }
-/*
-window#waybar:before {
-	content: "";
-	position: absolute;
-	bottom: -40px;
-	left: 0;
-	height: 40px;
-	width: 1920px;
-	border-top-left-radius: 20px;
-  	border-top-right-radius: 20px;
-	background: #522d5b;
-}
-*/
-
 
 #workspaces {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	color: @text;
 	background-color: @base2;
@@ -49,10 +35,10 @@ button:hover {
 #workspaces button {
 	padding: 0 5px;
 	background-color: transparent;
-	color: @gf;
+	color: @text;
 }
 #workspaces button:hover {
-	color: @peach;
+	color: @mauve;
 }
 #workspaces button.focused {
 }
@@ -60,9 +46,9 @@ button:hover {
 }
 
 #window {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
-	color: @peach;
+	color: @mauve;
 	background-color: @base2;
 	border: none;
 	border-radius: 20;
@@ -72,7 +58,7 @@ button:hover {
 
 #custom-cmus,
 #custom-weather {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	color: @text;
 	background-color: @base2;
@@ -80,45 +66,21 @@ button:hover {
 	border-radius: 20;
 }
 #custom-cmus:hover {
-	color: @peach;
+	color: @mauve;
 }
-
-#custom-foot {
-	padding: 2 10 2 15;
-	margin: 5 0 5 5;
-	color: @text;
-	background-color: @base2;
-	border: none;
-	border-radius: 20 0 0 20;
-}
-#custom-foot:hover {
-	color: @peach;
-}
-
-#custom-nemo {
-	padding: 2 15 2 10;
-	margin: 5 5 5 0;
-	color: @text;
-	background-color: @base2;
-	border: none;
-	border-radius: 0 20 20 0;
-}
-#custom-nemo:hover {
-	color: @peach;
-}
-
 
 
 #tray {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	background-color: @base2;
+	color: @text;
 	border: none;
 	border-radius: 20;
 }
 
 #language {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	color: @text;
 	background-color: @base2;
@@ -126,11 +88,11 @@ button:hover {
 	border-radius: 20;
 }
 #language:hover {
-	color: @peach;
+	color: @mauve;
 }
 
 #pulseaudio {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	color: @text;
 	background-color: @base2;
@@ -141,11 +103,11 @@ button:hover {
 	color: @maroon;
 }
 #pulseaudio:hover {
-	color: @peach;
+	color: @mauve;
 }
 
 #clock {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5;
 	color: @text;
 	background-color: @base2;
@@ -153,11 +115,11 @@ button:hover {
 	border-radius: 20;
 }
 #clock:hover {
-	color: @peach;
+	color: @mauve;
 }
 
 #custom-power {
-	padding: 2 15;
+	padding: 2 5;
 	margin: 5 10 5 5;
 	color: @pink;
 	background-color: @base2;
@@ -169,12 +131,13 @@ button:hover {
 }
 
 #custom-microphone {
-	padding: 2 0 2 15;
+	padding: 2 0 2 5;
 	color: @red;
 }
 
-#custom-zapret {
-	padding: 2 0 2 15;
+#custom-swaync {
+	padding: 2 20 2 5;
+	color: @mauve;
 }
 
 tooltip {

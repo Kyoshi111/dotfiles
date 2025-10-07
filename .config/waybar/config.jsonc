@@ -6,7 +6,7 @@
 
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["hyprland/window"],
-	"modules-right": ["tray", "hyprland/language", "custom/microphone", "pulseaudio", "custom/zapret", "clock"],
+	"modules-right": ["tray", "hyprland/language", "custom/microphone", "pulseaudio", "custom/zapret", "clock", "custom/swaync"],
 
 	"hyprland/workspaces": {
 		"format": "{name}{icon}",
@@ -43,7 +43,7 @@
 	},
 
 	"hyprland/language": {
-		"format": "<span color='#fab387'>󰌏</span> {}",
+		"format": "<span color='#cba6f7'>󰌏</span> {}",
 		"format-en": "EN",
 		"format-ru": "RU",
 		"on-click": "hyprctl switchxkblayout cooler-master-technology-inc.-gaming-mech-kb next",
@@ -51,7 +51,7 @@
     
 	"pulseaudio": {
 		"scroll-step": 5,
-		"format": "<span color='#fab387'>{icon}</span> {volume}%",
+		"format": "<span color='#cba6f7'>{icon}</span> {volume}%",
 		"format-icons": {
 			"default": ["", "", ""],
 			"alsa_output.pci-0000_0c_00.4.analog-stereo": "",
@@ -66,7 +66,7 @@
 
 	"clock": {
 		"interval": 1,
-		"format": "<span color='#fab387'></span> {:%H:%M:%S}",
+		"format": "<span color='#cba6f7'></span> {:%H:%M:%S}",
 		"tooltip-format": "<big><span color='#cdd6f4'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "<span color='#eba0ac'></span> <span color='#cdd6f4'>{:%Y-%m-%d}</span>",
 
@@ -93,13 +93,14 @@
 	},
 
 	"custom/microphone": {
-		"exec": "pactl list sources | grep 'State: RUNNING' > /dev/null && echo ",
+		"exec": "pactl list sources | grep 'State: RUNNING' -A 1 | grep 'easyeffects_source' > /dev/null && echo ",
 		"restart-interval": 1,
 	},
 
-	"custom/zapret": {
-		"format": "<span color='#eba0ac'> </span><span color='#fab387'> </span>",
-		"on-click": "zapret-restart"
+	"custom/swaync": {
+		"exec": "if [ $(swaync-client -D) = 'true' ]; then echo '󰪑'; else if [ $(swaync-client -c) -gt 0 ]; then echo '󰅸'; else echo '󰂜'; fi; fi",
+		"restart-interval": 1,
+		"on-click": "swaync-client -t",
 	},
 
 	"escape": true,
