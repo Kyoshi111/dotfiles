@@ -1,11 +1,10 @@
 [Desktop Entry]
-Name=r2modman
-Exec=/home/kyoshi/.apps/r2modman-3.2.6.AppImage
+Name=BetterDiscord
+Exec=/home/kyoshi/.apps/BetterDiscord.AppImage
 Terminal=false
 Type=Application
-Icon=r2modman
-StartupWMClass=r2modman
+Icon=betterdiscord
+StartupWMClass=BetterDiscord
 X-AppImage-Version=3.1.57
-Comment=A simple and easy to use mod manager for many games using Thunderstore.
-MimeType=x-scheme-handler/ror2mm;
 Categories=Game;
+Name[en_US]=BetterDiscord.desktop
