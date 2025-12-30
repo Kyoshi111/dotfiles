@@ -10,5 +10,4 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -regex '.*\.png$' -type f | shuf -n 1)
 rm "$BG"
 ln -s "$WALLPAPER" "$BG"
 
-hyprctl hyprpaper preload "$BG"
 hyprctl hyprpaper wallpaper ,"$BG"
