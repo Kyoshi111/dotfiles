@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -e '[preferred]\norg.freedesktop.impl.portal.ScreenCast=hyprland' > ~/.config/xdg-desktop-portal/portals.conf
+systemctl --user restart xdg-desktop-portal
+
+flatpak kill org.dpsoftware.FireflyLuciferin
+flatpak run org.dpsoftware.FireflyLuciferin 1>/dev/null 2>/dev/null &
+
+sleep 10
+
+echo -e '[preferred]\norg.freedesktop.impl.portal.ScreenCast=wlr' > ~/.config/xdg-desktop-portal/portals.conf
+systemctl --user restart xdg-desktop-portal
