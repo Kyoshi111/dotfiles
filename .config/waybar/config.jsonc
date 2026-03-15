@@ -4,9 +4,9 @@
 	"width": 1920,
 	"margin": 0,
 
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-left": ["niri/workspaces", "niri/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray", "hyprland/language", "custom/microphone", "pulseaudio", "custom/zapret", "custom/swaync"],
+	"modules-right": ["tray", "niri/language", "custom/microphone", "pulseaudio", "custom/zapret", "custom/swaync"],
 
 	"hyprland/workspaces": {
 		"format": "{name}{icon}",
@@ -25,7 +25,7 @@
 			"urgent": "",
 			"active": "",
 			"default": "",
-			},
+		},
 		"tooltip": false,
 		"on-scroll-up": "hyprctl dispatch workspace e-1",
     	"on-scroll-down": "hyprctl dispatch workspace e+1",
@@ -37,16 +37,35 @@
 		"separate-outputs": false,
 	},
 
-	"tray": {
-		"icon-size": 13,
-		"spacing": 10
-	},
-
 	"hyprland/language": {
 		"format": "<span color='#cba6f7'>󰌏</span> {}",
 		"format-en": "EN",
 		"format-ru": "RU",
 		"on-click": "hyprctl switchxkblayout cooler-master-technology-inc.-gaming-mech-kb next",
+	},
+
+	"niri/workspaces": {
+		"format": "{name}{icon}",
+		"format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": "",
+		},
+	},
+
+	"niri/window": {
+		"format": "{title}"
+	},
+
+	"tray": {
+		"icon-size": 13,
+		"spacing": 10
+	},
+
+	"niri/language": {
+		"format": "<span color='#cba6f7'>󰌏</span> {}",
+		"format-en": "EN",
+		"format-ru": "RU",
 	},
     
 	"pulseaudio": {

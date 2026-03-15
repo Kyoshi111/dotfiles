@@ -4,11 +4,16 @@ spawn-sh-at-startup "dbus-update-activation-environment --systemd --all"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme catppuccin-mocha-mauve-standard"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark"
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "zen-browser"
+spawn-sh-at-startup "docker stop $(docker ps -aq)"
+
+spawn-sh-at-startup "~/.local/bin/set-random-wallpaper"
+spawn-sh-at-startup "swaybg -i ~/pictures/wallpapers/bg.png"
 
 spawn-sh-at-startup "easyeffects --gapplication-service"
 spawn-sh-at-startup "~/.local/bin/restart-firefly-luciferin-from-niri"
+
+spawn-at-startup "waybar"
+spawn-at-startup "zen-browser"
 
 screenshot-path "~/pictures/screenshots/%Y-%m-%d_%H-%M-%S.png"
 
@@ -38,6 +43,18 @@ environment {
 
 window-rule {
     draw-border-with-background false
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="wofi"
+    open-floating true
+    default-floating-position x=0 y=389 relative-to="bottom"
+}
+
+window-rule {
+    match app-id=r#"^zen$"# title="^Zen Browser$"
+    default-column-width { proportion 1.0; }
 }
 
 window-rule {
@@ -51,7 +68,8 @@ window-rule {
 }
 
 window-rule {
-  clip-to-geometry true
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 window-rule {
@@ -87,8 +105,9 @@ cursor {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    //Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space { spawn "fuzzel"; }
     Mod+Pause { spawn-sh "~/.local/bin/pactl-swap-default-sink"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -404,7 +423,6 @@ layout {
     gaps 0
 
     struts {
-        top 1
     }
     
     center-focused-column "never"

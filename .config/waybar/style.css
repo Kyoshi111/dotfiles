@@ -10,16 +10,16 @@
 
 window#waybar {
 	background-color: @base;
-	opacity: 0.97;
+	opacity: 1.0;
 }
 
 #workspaces {
-	padding: 2 5;
-	margin: 5;
+	padding: 0 0;
+	margin: 0;
 	color: @text;
 	background-color: @base2;
 	border: none;
-	border-radius: 20;
+	border-radius: 0;
 }
 button {
 	box-shadow: inset 0 -3px transparent;
@@ -31,7 +31,7 @@ button:hover {
 	box-shadow: inset 0 -3px transparent;
 }
 #workspaces button {
-	padding: 0 5px;
+	padding: 0 0px;
 	background-color: transparent;
 	color: @text;
 }
@@ -44,7 +44,7 @@ button:hover {
 }
 
 #window {
-	padding: 2 5;
+	padding: 2 0;
 	margin: 5;
 	color: @mauve;
 	background-color: @base2;
