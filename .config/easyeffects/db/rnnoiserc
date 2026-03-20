@@ -1,0 +1,11 @@
+[sie][RNNoise#0]
+bypass=true
+enableVad=true
+modelName=
+outputGain=-8.6
+release=0
+vadThres=95
+
+[sie][RNNoise#1]
+inputGain=-8.6
+useStandardModel=false

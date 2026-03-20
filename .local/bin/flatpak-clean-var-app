@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# clean-flatpak-var-app.sh
+# Для каждого каталога в ~/.var/app/* проверяет, присутствует ли соответствующий
+# application id в `flatpak list --columns=application`. Если не найден — удаляет.
+# Поддерживает dry-run, подтверждение и вывод.
+
+usage() {
+  cat <<EOF
+Usage: $0 [OPTIONS]
+
+OPTIONS:
+  -n, --dry-run    Показывает, что будет удалено, но ничего не удаляет
+  -f, --force      Не спрашивать подтверждение перед удалением
+  -v, --verbose    Подробный вывод
+  -h, --help       Показать это сообщение
+
+Рекомендация: сначала запускайте с --dry-run, чтобы убедиться в результатах.
+EOF
+}
+
+DRY_RUN=0
+FORCE=0
+VERBOSE=0
+
+while [[ ${#} -gt 0 ]]; do
+  case "$1" in
+  -n | --dry-run)
+    DRY_RUN=1
+    shift
+    ;;
+  -f | --force)
+    FORCE=1
+    shift
+    ;;
+  -v | --verbose)
+    VERBOSE=1
+    shift
+    ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  --)
+    shift
+    break
+    ;;
+  -*)
+    echo "Unknown option: $1" >&2
+    usage
+    exit 2
+    ;;
+  *) break ;;
+  esac
+done
+
+# Получаем список установленных application id из flatpak
+if ! command -v flatpak >/dev/null 2>&1; then
+  echo "flatpak не найден в PATH. Установите flatpak или запустите скрипт на машине с flatpak." >&2
+  exit 3
+fi
+
+mapfile -t INSTALLED_APPS < <(flatpak list --columns=application 2>/dev/null | awk 'NF' | sort -u)
+
+declare -A INSTALLED_SET=()
+for a in "${INSTALLED_APPS[@]}"; do
+  INSTALLED_SET["$a"]=1
+done
+
+# Проверяем директории
+TARGET_DIR="$HOME/.var/app"
+if [[ ! -d "$TARGET_DIR" ]]; then
+  echo "Каталог $TARGET_DIR не найден. Нечего проверять." >&2
+  exit 0
+fi
+
+# Если нет ни одной поддиректории — выйти
+shopt -s nullglob
+found_any=0
+for path in "$TARGET_DIR"/*; do
+  found_any=1
+  if [[ ! -d "$path" ]]; then
+    [[ $VERBOSE -eq 1 ]] && echo "Пропуск (не каталог): $path"
+    continue
+  fi
+  app_id=$(basename -- "$path")
+
+  if [[ -n "${INSTALLED_SET[$app_id]:-}" ]]; then
+    [[ $VERBOSE -eq 1 ]] && echo "Сохранено (установлен): $app_id"
+  else
+    if [[ $DRY_RUN -eq 1 ]]; then
+      echo "[DRY-RUN] Будет удалено: $path"
+    else
+      if [[ $FORCE -eq 0 ]]; then
+        read -r -p "Удалить $path ? [y/N] " ans || ans="n"
+        case "$ans" in
+        [Yy]*) : ;;
+        *)
+          echo "Пропущено: $path"
+          continue
+          ;;
+        esac
+      fi
+      rm -rf -- "$path"
+      echo "Удалено: $path"
+    fi
+  fi
+done
+shopt -u nullglob
+
+if [[ $found_any -eq 0 ]]; then
+  echo "Нет поддиректорий в $TARGET_DIR"
+fi
+
+exit 0

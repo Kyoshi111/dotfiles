@@ -34,22 +34,9 @@ environment {
     QS_ICON_THEME "Papirus-Dark"
 }
 
-/-window-rule {
-    exclude app-id="krita"
-    exclude app-id="FreeCAD"
-    exclude app-id="org.dpsoftware.FireflyLuciferin"
-    opacity 0.97
-}
-
 window-rule {
     draw-border-with-background false
     clip-to-geometry true
-}
-
-window-rule {
-    match app-id="wofi"
-    open-floating true
-    default-floating-position x=0 y=389 relative-to="bottom"
 }
 
 window-rule {
@@ -87,14 +74,9 @@ debug {
 }
 
 layer-rule {
-    match namespace="^noctalia-notifications-HDMI-A-1$"
+    match namespace="^swaync-notification-window$"
 
     block-out-from "screen-capture"
-}
-
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
 }
 
 cursor {
@@ -452,6 +434,10 @@ layout {
 
     shadow {
     }
+}
+
+overview {
+    backdrop-color "#11111b"
 }
 
 hotkey-overlay {
