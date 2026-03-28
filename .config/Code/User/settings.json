@@ -1,0 +1,30 @@
+{
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "color-highlight.languages": [
+        "*"
+    ],
+    "redhat.telemetry.enabled": true,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "git.autofetch": true,
+    "workbench.iconTheme": "catppuccin-mocha",
+    "python.analysis.typeCheckingMode": "basic",
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    "docker.extension.enableComposeLanguageServer": false,
+    "[kdl]": {},
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "files.autoSave": "onFocusChange",
+}

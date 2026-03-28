@@ -361,7 +361,7 @@
             },
             "mode": "IIR",
             "num-bands": 32,
-            "output-gain": 0.0,
+            "output-gain": -5.7,
             "pitch-left": 0.0,
             "pitch-right": 0.0,
             "right": {
@@ -724,21 +724,19 @@
             "anti-alias": false,
             "bypass": true,
             "cents": 0.0,
-            "dry": -100.0,
             "input-gain": 0.0,
             "octaves": 0.0,
             "output-gain": 0.0,
             "overlap-length": 0,
             "quick-seek": false,
             "rate-difference": 0.0,
-            "seek-window": 15,
+            "seek-window": 0,
             "semitones": 5.0,
             "sequence-length": 0,
-            "tempo-difference": 0.0,
-            "wet": 0.0
+            "tempo-difference": 0.0
         },
         "plugins_order": [
-            "rnnoise#1",
+            "rnnoise#0",
             "equalizer#0",
             "pitch#0",
             "reverb#0"
@@ -757,15 +755,14 @@
             "room-size": "Large",
             "treble-cut": 5000.0
         },
-        "rnnoise#1": {
+        "rnnoise#0": {
             "bypass": false,
-            "enable-vad": false,
-            "input-gain": -8.6,
-            "model-name": "\"\"",
-            "output-gain": 0.0,
-            "release": 20.0,
-            "use-standard-model": false,
-            "vad-thres": 50.0,
+            "enable-vad": true,
+            "input-gain": 0.0,
+            "model-name": "",
+            "output-gain": -8.6,
+            "release": 0.0,
+            "vad-thres": 95.0,
             "wet": 0.0
         }
     }

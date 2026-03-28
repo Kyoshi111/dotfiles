@@ -7,5 +7,5 @@ release=0
 vadThres=95
 
 [sie][RNNoise#1]
-inputGain=-8.6
+inputGain=-9.9
 useStandardModel=false
